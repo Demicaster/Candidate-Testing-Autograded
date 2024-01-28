@@ -59,8 +59,11 @@ function gradeQuiz(candidateAnswers) {
 //   console.log("Incorrect.") 
 // }
 let answeredCorrect = 0;
+// Added Case insensitive comparing
 let lowerCaseCandidateAnswers = candidateAnswers.map(candidateAnswers => candidateAnswers.toLowerCase());
 let lowerCaseCorrectAnswers = correctAnswers.map(correctAnswers => correctAnswers.toLowerCase());
+
+
 for (i = 0; i < 5; i++) {
   if (lowerCaseCandidateAnswers[i] === lowerCaseCorrectAnswers[i] ) {
     console.log("Correct! The answer was " + correctAnswers[i]);
