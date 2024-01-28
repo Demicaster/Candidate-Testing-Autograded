@@ -25,11 +25,10 @@ let correctAnswers = [
 "40",
 "Trajectory",
 "3"
-
 ];
 
-let candidateAnswers = [""];
-candidateAnswers.splice(0);
+let candidateAnswers = [];
+// candidateAnswers.splice(0);
 
 
 
@@ -59,19 +58,30 @@ function gradeQuiz(candidateAnswers) {
 // else {
 //   console.log("Incorrect.") 
 // }
-
+let answeredCorrect = 0;
+let lowerCaseCandidateAnswers = candidateAnswers.map(candidateAnswers => candidateAnswers.toLowerCase());
+let lowerCaseCorrectAnswers = correctAnswers.map(correctAnswers => correctAnswers.toLowerCase());
 for (i = 0; i < 5; i++) {
-  if (candidateAnswers[i] === correctAnswers[i]) {
-    console.log("Correct!")
+  if (lowerCaseCandidateAnswers[i] === lowerCaseCorrectAnswers[i] ) {
+    console.log("Correct! The answer was " + correctAnswers[i]);
+   answeredCorrect = answeredCorrect + 1;
   }
   else {
-    console.log("Incorrect.") 
+    console.log("Incorrect. The answer was actually " + correctAnswers[i]) 
+    candidateAnswers.splice(i,1)
 
 }
 }
 
 
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
+  let grade = ((answeredCorrect / 5) * 100);  //TODO 3.2 use this variable to calculate the candidates score.
+  
+  if (grade >= 80){
+    console.log("Congratulations you passed the test with" + grade + "%")
+  }
+    else {
+      console.log("Im sorry but you did not past the test. Your final score was"+ grade +"% you needed a 80% to pass.")
+    }
 
 
   return grade;
