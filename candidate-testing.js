@@ -41,13 +41,14 @@ candidateName = input.question ("what is your name? ");
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
 // candidateAnswer = input.question (question) ;
-
-}
+console.log(candidateAnswers);
 
 for (let i = 0; i < 5; i++) {
-candidateAnswers.push(input.question("Question" + (i+1) + ":"+ questions[i])) 
+  candidateAnswers.push(input.question("Question" + (i+1) + ":"+ questions[i])) 
 }
-console.log(candidateAnswers);
+}
+
+
 
 function gradeQuiz(candidateAnswers) {
 
